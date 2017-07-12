@@ -1,0 +1,108 @@
+// Bartendr Theme
+
+///////////////////
+
+// Variables
+
+// Colors
+
+$ctaColorA: rgb(49, 15, 93); // Purple
+$ctaColorB: rgb(99,26,81); // Red Purple
+$darkBodyType: #4A4A4A; // Dark Grey
+$darkLinkType: #21003D;
+$lightBodyType: rgb(255,255,255); // White
+$lightAccent: #E7D7EB; // Light purple
+$altLightAccent: rgb(219,216,222); // Light Grey
+$ctaGradient: linear-gradient(180deg, rgba($ctaColorA, 0.9), rgba($ctaColorB,0.9));
+
+// Size
+
+$bodyFontSizeMobile: 18px;
+$bodyFontSize: 15px;
+$lineHeight: 1.5em;
+$smallDevice: 768px;
+$maxContentWidth: 960px;
+
+// Font
+
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i');
+$font: 'Rubik', Helvetica, Arial, sans-serif;
+
+
+//////////////////////
+
+// Mixins
+
+// Font Smoothing
+@mixin niceFont {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Visually hidden, but accessbile to screen-readers
+@mixin visuallyHidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+
+// CTA Color Gradient
+@mixin ctaGradientAnimation {
+  -webkit-animation: SubtleGradientAnimation 20s ease infinite;
+  -moz-animation: SubtleGradientAnimation 20s ease infinite;
+  -o-animation: SubtleGradientAnimation 20s ease infinite;
+  animation: SubtleGradientAnimation 20s ease infinite;
+}
+
+// Rounded Button style for interactive elements
+@mixin roundedButton {
+  margin: .5rem;
+  padding: 5px 1rem;
+  border-radius: 30px;
+  border: 1px solid #fff;
+  text-align: center;
+  display: inline-block;
+}
+
+
+// Flexbox Container
+@mixin flexContainer {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    
+    -webkit-flex-flow: row wrap;
+    flex-wrap: wrap;
+}
+
+// Animation Keyframes
+
+// CSS Animation for background gradient
+// Animates position of top background layer
+// Keeps the second background layer still.
+  @mixin subtleBgAnimation {
+    0%{background-position:50% 0%, 0% 50%}
+    50%{background-position:50% 100%, 0% 50%}
+    100%{background-position:50% 0%, 0% 50%}
+  }
+
+ @-webkit-keyframes SubtleGradientAnimation {
+      @include subtleBgAnimation;
+  }
+  @-moz-keyframes SubtleGradientAnimation {
+      @include subtleBgAnimation;
+  }
+  @-o-keyframes SubtleGradientAnimation {
+      @include subtleBgAnimation;
+  }
+  @keyframes SubtleGradientAnimation { 
+      @include subtleBgAnimation;
+  }

@@ -1,7 +1,16 @@
 <template>
   <div id="app">
-
     <router-view></router-view>
+  
+    <footer>
+      <nav>
+        <a href="#">Sign In</a>
+        <a href="#">About Aceable</a>
+        <a href="#">Detailed Course List</a>
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Privacy Policy</a>
+      </nav>
+    </footer>
   </div>
 </template>
 
@@ -12,27 +21,35 @@ export default {
 </script>
 
 
-<style>
-@import url('https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i');
+<style lang="scss">
+@import "./style/bartendr-theme.scss";
+
 
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Rubik', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #4A4A4A; /* Body copy */
-  font-size: 18px; /* Body Font-Size */
-}
-
-@media screen and (min-width: 768px;) {
-  body {
-    font-size: 14px;
+  font-family: $font;
+  @include niceFont;
+  color:$darkBodyType;
+  line-height: $lineHeight;
+  font-size: $bodyFontSizeMobile; /* Body Font-Size */
+  @media screen and (min-width: 768px) {
+    font-size: $bodyFontSize;
   }
-}
-
-#app {
-
+  footer {
+    background-color: $altLightAccent;
+    font-size: .8rem;
+    text-align: center;
+    padding: 2rem;
+    nav {
+      display: block;
+      a:link, a:visited {
+        display:block;
+        color: $darkLinkType;
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 
