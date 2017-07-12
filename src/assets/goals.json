@@ -1,0 +1,23 @@
+[
+  {
+    "goalID" : 1,
+    "goalName" : "Get your TABC Certification in 2 hours",
+    "goalKeywords" : ["tabc"],
+    "selected" : false,
+    "level" : "all"
+  },
+  {
+    "goalID" : 2,
+    "goalName" : "Learn Bartending Today",
+    "goalKeywords" : ["lesson"],
+    "selected" : false,
+    "level" : "beginner"
+  },
+  {
+    "goalID" : 3,
+    "goalName" : "Train your staff this week",
+    "goalKeywords" : ["manager"],
+    "selected" : false,
+    "level" : "expert"
+  }
+]

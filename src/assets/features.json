@@ -1,0 +1,27 @@
+[
+  {
+    "featureId" : 1,
+    "featureTitle" : "Feel Like a Winner",
+    "featureDetail" : "Interactive game-play keeps you enterained and focused. Dull training videos from the 80’s are a thing of the past."
+  },
+  {
+    "featureId" : 2,
+    "featureTitle" : "Learn Anywhere",
+    "featureDetail" : "Train anywhere you want with your phone. No need to fall asleep in front of your computer or lug your laptop around."
+  },
+  {
+    "featureId" : 3,
+    "featureTitle" : "Get Certified Fast",
+    "featureDetail" : "Get your TABC certification in as little as 2 hours. Acces your certificate immediately and print it out to make your boss and the State of Texas proud."
+  },
+  {
+    "featureId" : 4,
+    "featureTitle" : "Find a Job",
+    "featureDetail" : "Put your certification to work right away. You’ll get preferred access to national chains and independent businesses in our network."
+  },
+  {
+    "featureId" : 5,
+    "featureTitle" : "Up Your Game",
+    "featureDetail" : "Go beyond the basics. Serve up FOMO-inducing cocktails for big-tippers. Expert-led tips will take your skils to the next level."
+  }
+]

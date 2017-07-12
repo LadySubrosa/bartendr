@@ -1,0 +1,58 @@
+[
+  {
+    "courseId" : 1,
+    "courseName" : "TABC Certification Only",
+    "coursePrice" : 10,
+    "courseDescription" : "Get certified to serve or sell liquor in as little as 2 hours. Add on to any course for $5.",
+    "courseKeywords" : ["tabc"],
+    "coursePriority" : false 
+  },
+  {
+    "courseId" : 2,
+    "courseName" : "Food Handlers License Only",
+    "coursePrice" : 10,
+    "courseDescription" : "Get certified to serve food in as little as 2 hours. Add on to any course for $5.",
+    "courseKeywords" : ["food"],
+    "coursePriority" : false 
+  },
+  {
+    "courseId" : 3,
+    "courseName" : "TABC + Sample Course",
+    "coursePrice" : 25,
+    "courseDescription" : "Get certified and try a sample bartending lesson guarunteed to get you more tips.",
+    "courseKeywords" : ["tabc", "lesson"],
+    "coursePriority" : true 
+  },
+  {
+    "courseId" : 4,
+    "courseName" : "Intro to Bartending",
+    "coursePrice" : 50,
+    "courseDescription" : "All of the basics you need to work as a bartender.",
+    "courseKeywords" : ["lesson"],
+    "coursePriority" : false
+  },
+  {
+    "courseId" : 5,
+    "courseName" : "Bartending Unlimited",
+    "coursePrice" : 150,
+    "courseDescription" : "Go beyond basics and take your skills to the next level. More skills, more tips!",
+    "courseKeywords" : ["lesson"],
+    "coursePriority" : false
+  },
+  {
+    "courseId" : 6,
+    "courseName" : "Manager's Group TABC Certification Special",
+    "coursePrice" : 5,
+    "courseDescription" : "Certify your employees for our special add-on rate.",
+    "courseKeywords" : ["manager"],
+    "coursePriority" : true
+  },
+  {
+    "courseId" : 7,
+    "courseName" : "Manager Certification",
+    "coursePrice" : 15,
+    "courseDescription" : "Take your job to the next level with a certificate in managing.",
+    "courseKeywords" : ["manager"],
+    "coursePriority" : false
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "reviewId" : 1,
+    "reviewTitle" : "Wish I had this when I first started!",
+    "fullReview" : "I’ve been a server for years, and this is the only time I can say I’ve had fun training for work. I learned a couple of new tricks that helped me impress my boss. Now I work prime hours for prime tips!",
+    "reviewerName" : "Jason",
+    "reviewerLocation" : "Austin, TX",
+    "reviewerJobTitle" : "Bartender",
+    "reviewerWorkPlace" : "The Beer Plant",
+    "img" : "static/img/jason.png"
+  },
+  {
+    "reviewId" : 2,
+    "reviewTitle" : "Easy-peasy!",
+    "fullReview" : "I needed a flexible job to help me pay for school and saw a few openings that required TABC Cert. I was a total newbie, but Bartendr's training was quick, cheap, and fun. I even learned how to make a few great cocktails! My tips are awesome and I love my job!",
+    "reviewerName" : "Sarah",
+    "reviewerLocation" : "Dallas, TX",
+    "reviewerJobTitle" : "Server",
+    "reviewerWorkPlace" : "Mi Día from Scratch",
+    "img" : "static/img/sarah.png"
+  },
+  {
+    "reviewId" : 3,
+    "reviewTitle" : "Got my staff re-certified in one day.",
+    "fullReview" : "This service has been a huge blessing to me and my team. In all my years managing, this is the first time I was able to get all of my staff trained in one day! Incredible! My bartenders are happier than ever, making more in tips thanks to the bartending coursework. Thank you, Bartendr!",
+    "reviewerName" : "Devon",
+    "reviewerLocation" : "San Antonio, TX",
+    "reviewerJobTitle" : "Manager",
+    "reviewerWorkPlace" : "Hilton Palacio del Rio",
+    "img" : "static/img/devon.png"
+  }
+ ]
