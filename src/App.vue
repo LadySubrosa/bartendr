@@ -1,7 +1,17 @@
 <template>
   <div id="app">
+    <!-- Header Nav. Don't Show on LandingPage. -->
+    <nav v-if="$route.meta.Bartendr"> 
+        <a href="#">Sign In</a>
+        <a href="#">About Aceable</a>
+        <a href="#">Detailed Course List</a>
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Privacy Policy</a>
+    </nav>
+
     <router-view></router-view>
   
+    <!-- Footer Nav. Show on all pages. -->
     <footer>
       <nav>
         <a href="#">Sign In</a>
@@ -11,6 +21,7 @@
         <a href="#">Privacy Policy</a>
       </nav>
     </footer>
+
   </div>
 </template>
 
@@ -49,6 +60,15 @@ body {
         text-decoration: underline;
       }
     }
+  }
+  input[type="submit"], button {
+    @include roundedButtonCTA;
+  }
+  a.cta {
+    @include roundedButtonCTA;
+    text-decoration: none;
+    font-size: 1.1rem !important;
+    line-height: 1.5rem;
   }
 }
 

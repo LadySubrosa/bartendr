@@ -43,7 +43,7 @@
     "courseId" : 6,
     "courseName" : "Manager's Group TABC Certification Special",
     "coursePrice" : 5,
-    "courseDescription" : "Certify your employees for our special add-on rate.",
+    "courseDescription" : "Certify your employees for our special add-on rate. Only $5 per person",
     "courseKeywords" : ["manager"],
     "coursePriority" : true
   },

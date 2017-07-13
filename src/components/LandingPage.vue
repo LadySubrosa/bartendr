@@ -1,29 +1,47 @@
 <template>
   <div class="landingPage">
       
-    <div id="hero">
+    <section id="hero">
+      <nav><a href="#" title="Sign In to Bartendr">Sign In</a></nav>
       <h1>Bartendr</h1>
+      <div v-if="!showCourses" class="hero-content" id="hero-step1">
       <h2>A Modern Approach to your Bartender Certification. <br/>
           Quick. Legit. Actually Fun.</h2>
+          <p>What are your goals?</p>
           <p v-for="goal in goalsList" class="goal-buttons">
-         <input type="checkbox" class="goal-button" v-model="goal.selected" v-bind:id="goal.goalID" v-bind:true-value="true"
-  v-bind:false-value="false"/>
+         <input type="checkbox" class="goal-button" v-model="goal.selected" v-bind:id="goal.goalID" v-bind:true-value="true" v-bind:false-value="false"/>
           <label v-bind:for="goal.goalID">{{ goal.goalName }}</label>
         </p>
-        <p id="next-step" v-if="this.goalsSelected.length"><a href="">Next</a></p>
-        <p id="remind-later" v-else><a href="">Remind Me Later</a></p>
+        <p id="next-step"  v-on:click.prevent="toggleCourseOptions" v-if="this.goalsSelected.length"><a href="">Next &gt;</a></p>
+        <p id="remind-later" v-on:click.prevent="showEmailModal" v-else><a href="">Remind Me Later</a></p>
+      </div>
 
-<h3>Your Goals</h3>
-<p v-for="goal in goalsSelected">
-  {{ goal.goalName }}
-</p>
-        <h3>Courses for your goals</h3>
-    <p v-for="course in coursesSelected">
-      <strong v-if="course.coursePriority">Best Deal <br/></strong>
-      ${{ course.coursePrice }} {{ course.courseName }}
-      <br>{{ course.courseDescription}}</p>
+  <div v-else id="hero-step2" class="hero-content">
+    <h3>Your Goals</h3>
+    <p v-for="goal in goalsSelected">
+        {{ goal.goalName }}
+    </p>
+
+    <div id="best-option" >
+      <h3>Top Option<span v-if="bestCourse.length > 1">s</span> for You</h3>
+
+      <div class="option" v-for="course in bestCourse">
+      <h4>${{ course.coursePrice }} {{ course.courseName }}</h4>
+      <p>{{ course.courseDescription }}</p>
+      <p><a href="#" class="cta">Sign Up for Bartendr</a></p>
+    </div>
+      
 
     </div>
+    <div id="other-options">
+        <h3>Other Options</h3>
+      <div class="course-detail" v-for="course in coursesSelected">
+      <p v-if="!course.coursePriority" class="course-name"><a href="#">${{ course.coursePrice }} {{ course.courseName }} &gt;</a><br/>
+      <span class="course-description">{{ course.courseDescription}}</span></p></div>
+    </div>
+<p id="next-step"  v-on:click.prevent="toggleCourseOptions" v-if="this.goalsSelected.length"><a href="">&lt; Change Goals</a></p>
+    </div>
+  </section>
       
       <section id="features-list">
       <div class="feature" v-for="feature in features">
@@ -44,6 +62,14 @@
           <span class="credential">{{ review.reviewerJobTitle }} at {{ review.reviewerWorkPlace }}</span></div>
       </div>
     </section>
+
+    <section id="sample-signup">
+    <div id="email-signup">
+        <p><label for="sample-signup">Email Address</label></p>
+        <p><input name="sample-signup" type="email" placeholder="futuremixologist@email.com" /></p>
+        <input type="submit" value="Sign up for a Sample" />
+      </div>  
+    </section>
   </div>
 </template>
 
@@ -62,7 +88,9 @@ export default {
       courses: courseList,
       reviews: reviewsData,
       features: featuresList,
-      selectedKeywords: []
+      selectedKeywords: [],
+      showCourses: false,
+      isManager: false
     }
   },
   computed: {
@@ -74,19 +102,46 @@ export default {
     coursesSelected: function () {
       var keywords = this.keywordsSelected()
       return this.courses.filter(function (course) {
-        var hasCourse = false
+        var hasKeyword = false
         keywords.forEach(function (keyword) {
           if (course.courseKeywords.indexOf(keyword) > -1) {
-            hasCourse = true
+            hasKeyword = true
           }
         })
-        return hasCourse
+        return hasKeyword
+      })
+    },
+    bestCourseManager: function () {
+      var keywords = this.keywordsSelected()
+
+      return this.courses.filter(function (course) {
+        if (course.courseKeywords.indexOf('manager') > -1 && keywords.indexOf('manager') > -1) {
+          return course.coursePriority
+        }
+      })
+    },
+
+    bestCourse: function () {
+      var keywords = this.keywordsSelected()
+
+      return this.courses.filter(function (course) {
+        var hasKeyword = false
+
+        keywords.forEach(function (keyword) {
+          if (course.courseKeywords.indexOf(keyword) > -1) {
+            hasKeyword = true
+          }
+        })
+        if (hasKeyword) {
+          return course.coursePriority
+        }
       })
     }
   },
   methods: {
     keywordsSelected: function () {
       var keywords = []
+
       this.goalsSelected.filter(function (goal) {
         goal.goalKeywords.filter(function (keyword) {
           if (keywords.indexOf(keyword) === -1) {
@@ -95,6 +150,9 @@ export default {
         })
       })
       return keywords
+    },
+    toggleCourseOptions: function () {
+      this.showCourses = !this.showCourses
     }
   }
 }
@@ -105,33 +163,70 @@ export default {
 <style lang="scss" scoped>
 @import "./style/bartendr-theme.scss";
 
-/* Styles for Hero */
+
+// Styles for Hero
 #hero {
   display: block;
   box-sizing: border-box;
-  margin: 0 0 3rem;
+  margin: 0;
+  padding: 1rem;
   width: 100%;
   color: #fff;
-  padding: 3rem 0;
   background: $ctaGradient, url('/static/img/bg1.jpg');
   background-size: 400% 400%, cover;
   @include ctaGradientAnimation;
   
-  h1 {
-    text-transform: uppercase;
+  nav {
+    margin-right: 1rem;
+    margin-left: auto;
     font-size: .8rem;
-    font-weight: 500;
-    text-align: center;
-  }
-  
-   h2 {
-    text-align: center;
+    text-align: right;
   }
 
   a:link, a:visited {
     color: #fff;
-    font-size: .8em;
+    font-size: .8rem;
   }
+
+  h1 {
+      text-transform: uppercase;
+      font-size: .8rem;
+      font-weight: 500;
+      text-align: center;
+  }
+
+  .hero-content {
+    padding: 1rem 0;
+    width: 80%;
+    margin: auto;
+    max-width: $maxContentWidth;
+    text-align: center;
+    
+     h2 {
+      text-align: center;
+      line-height: 2rem;
+    }
+
+    #best-option {
+      display: block;
+      width: 400px;
+      padding: 1rem;
+      box-sizing: border-box;
+      margin: auto;
+      background: #fff;
+      color: $darkBodyType;
+      h3, h4 {
+        color: $ctaColorA;
+      }
+    }
+
+    #other-options {
+      text-align: left;
+      font-size:.9rem;
+    }
+  }
+
+
 }
 
 .goal-buttons {
@@ -150,7 +245,7 @@ export default {
   }
 }
 
-label {
+.goal-buttons label {
   @include roundedButton;
   &:hover {
     background: rgba(255,255,255,0.10);
