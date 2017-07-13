@@ -1,55 +1,68 @@
 <template>
   <div class="landingPage">
-      
     <section id="hero">
       <nav><a href="#" title="Sign In to Bartendr">Sign In</a></nav>
       <h1>Bartendr</h1>
-      <div v-if="!showCourses" class="hero-content" id="hero-step1">
-      <h2>A Modern Approach to your Bartender Certification. <br/>
-          Quick. Legit. Actually Fun.</h2>
-          <p>What are your goals?</p>
-          <p v-for="goal in goalsList" class="goal-buttons">
-         <input type="checkbox" class="goal-button" v-model="goal.selected" v-bind:id="goal.goalID" v-bind:true-value="true" v-bind:false-value="false"/>
-          <label v-bind:for="goal.goalID">{{ goal.goalName }}</label>
-        </p>
-        <p id="next-step"  v-on:click.prevent="toggleCourseOptions" v-if="this.goalsSelected.length"><a href="">Next &gt;</a></p>
-        <p id="remind-later" v-on:click.prevent="showEmailModal" v-else><a href="">Remind Me Later</a></p>
-      </div>
-
-  <div v-else id="hero-step2" class="hero-content">
-    <h3>Your Goals</h3>
-    <p v-for="goal in goalsSelected">
-        {{ goal.goalName }}
-    </p>
-
-    <div id="best-option" >
-      <h3>Top Option<span v-if="bestCourse.length > 1">s</span> for You</h3>
-
-      <div class="option" v-for="course in bestCourse">
-      <h4>${{ course.coursePrice }} {{ course.courseName }}</h4>
-      <p>{{ course.courseDescription }}</p>
-      <p><a href="#" class="cta">Sign Up for Bartendr</a></p>
-    </div>
       
+      <div id="hero-content">
+      <transition name="slide-fade">
+        
+        <div v-if="!showCourses" id="hero-step1" key="landing">
+          <h2>A Modern Approach to your Bartender Certification. <br/>
+            Quick. Legit. Actually Fun.</h2>
+            <p>What are your goals?</p>
+            <p v-for="goal in goalsList" class="goal-buttons">
+             <input type="checkbox" class="goal-button" v-model="goal.selected" v-bind:id="goal.goalID" v-bind:true-value="true" v-bind:false-value="false"/>
+             <label v-bind:for="goal.goalID">{{ goal.goalName }}</label>
+            </p>
+            
+            <p id="next-step"  v-on:click.prevent="toggleCourseOptions" v-if="this.goalsSelected.length">
+              <a href="">Next &gt;</a>
+            </p>
+            <p id="remind-later" v-on:click.prevent="showEmailModal" v-else>
+              <a href="">Remind Me Later</a>
+            </p>
+        </div>
 
+        <div v-else id="hero-step2" key="landing2">
+          
+          <h3>Your Goals</h3>
+          <p v-for="goal in goalsSelected">
+            {{ goal.goalName }}
+          </p>
+
+          <div id="best-option" >
+            
+            <h3>Top Option<span v-if="bestCourse.length > 1">s</span> for You</h3>
+
+            <div class="option" v-for="course in bestCourse">
+              <h4>${{ course.coursePrice }} {{ course.courseName }}</h4>
+              <p>{{ course.courseDescription }}</p>
+            </div>
+            
+              <p><a href="#" class="cta">Sign Up for Bartendr</a></p>
+          </div>
+          <div id="other-options">
+            <h3>Other Options</h3>
+            <div class="course-detail" v-for="course in coursesSelected">
+              <p v-if="!course.coursePriority" class="course-name"><a href="#">${{ course.coursePrice }} {{ course.courseName }} &gt;</a><br/>
+              <span class="course-description">{{ course.courseDescription}}</span></p>
+            </div>
+          </div>
+          <p id="next-step"  v-on:click.prevent="toggleCourseOptions" v-if="this.goalsSelected.length"><a href="">&lt; Change Goals</a></p>
+        </div>
+      </transition>
     </div>
-    <div id="other-options">
-        <h3>Other Options</h3>
-      <div class="course-detail" v-for="course in coursesSelected">
-      <p v-if="!course.coursePriority" class="course-name"><a href="#">${{ course.coursePrice }} {{ course.courseName }} &gt;</a><br/>
-      <span class="course-description">{{ course.courseDescription}}</span></p></div>
-    </div>
-<p id="next-step"  v-on:click.prevent="toggleCourseOptions" v-if="this.goalsSelected.length"><a href="">&lt; Change Goals</a></p>
-    </div>
-  </section>
-      
-      <section id="features-list">
+
+
+    </section><!-- End Hero -->
+
+    <section id="features-list">
       <div class="feature" v-for="feature in features">
-      <h3>{{ feature.featureTitle }}</h3>
+        <h3>{{ feature.featureTitle }}</h3>
         <p>{{ feature.featureDetail }}</p>
       </div>
-      <div></div>
-    </section>
+    </section> <!-- End Features -->
 
 
     <section id="reviews-list">
@@ -58,110 +71,154 @@
         <img v-bind:src="review.img" width="100" height="100"/>
         <h3>{{ review.reviewTitle }}</h3>
         <p>{{ review.fullReview }}</p>
-        <div class="attributed">{{ review.reviewerName }} from {{ review.reviewerLocation }} <br/>
-          <span class="credential">{{ review.reviewerJobTitle }} at {{ review.reviewerWorkPlace }}</span></div>
+        <div class="attributed">
+          {{ review.reviewerName }} from {{ review.reviewerLocation }} <br/>
+          <span class="credential">{{ review.reviewerJobTitle }} at {{ review.reviewerWorkPlace }}</span>
+        </div>
       </div>
-    </section>
+    </section> <!-- End Review -->
 
     <section id="sample-signup">
-    <div id="email-signup">
+      <div id="email-signup">
         <p><label for="sample-signup">Email Address</label></p>
         <p><input name="sample-signup" type="email" placeholder="futuremixologist@email.com" /></p>
         <input type="submit" value="Sign up for a Sample" />
       </div>  
-    </section>
+    </section> <!-- End Sample Sign Up -->
   </div>
 </template>
 
-<script>
+        <script>
 
-import courseList from '@/assets/courseList.json'
-import featuresList from '@/assets/features.json'
-import reviewsData from '@/assets/praise.json'
-import goalsList from '@/assets/goals.json'
+        import courseList from '@/assets/courseList.json'
+        import featuresList from '@/assets/features.json'
+        import reviewsData from '@/assets/praise.json'
+        import goalsList from '@/assets/goals.json'
 
-export default {
-  name: 'landingPage',
-  data () {
-    return {
-      goalsList: goalsList,
-      courses: courseList,
-      reviews: reviewsData,
-      features: featuresList,
-      selectedKeywords: [],
-      showCourses: false,
-      isManager: false
-    }
-  },
-  computed: {
-    goalsSelected: function () {
-      return this.goalsList.filter(function (goal) {
-        return goal.selected
-      })
-    },
-    coursesSelected: function () {
-      var keywords = this.keywordsSelected()
-      return this.courses.filter(function (course) {
-        var hasKeyword = false
-        keywords.forEach(function (keyword) {
-          if (course.courseKeywords.indexOf(keyword) > -1) {
-            hasKeyword = true
+        export default {
+          name: 'landingPage',
+          data () {
+            return {
+              goalsList: goalsList,
+              courses: courseList,
+              reviews: reviewsData,
+              features: featuresList,
+              selectedKeywords: [],
+              showCourses: false,
+              isManager: false
+            }
+          },
+          computed: {
+            goalsSelected: function () {
+              return this.goalsList.filter(function (goal) {
+                return goal.selected
+              })
+            },
+            coursesSelected: function () {
+              var keywords = this.keywordsSelected()
+              return this.courses.filter(function (course) {
+                var hasKeyword = false
+                keywords.forEach(function (keyword) {
+                  if (course.courseKeywords.indexOf(keyword) > -1) {
+                    hasKeyword = true
+                  }
+                })
+                return hasKeyword
+              })
+            },
+            bestCourse: function () {
+              var keywords = this.keywordsSelected()
+
+              return this.courses.filter(function (course) {
+                var hasKeyword = false
+
+                keywords.forEach(function (keyword) {
+                  if (course.courseKeywords.indexOf(keyword) > -1) {
+                    hasKeyword = true
+                  }
+                })
+                if (hasKeyword) {
+                  return course.coursePriority
+                }
+              })
+            }
+          },
+          methods: {
+            keywordsSelected: function () {
+              var keywords = []
+
+              this.goalsSelected.filter(function (goal) {
+                goal.goalKeywords.filter(function (keyword) {
+                  if (keywords.indexOf(keyword) === -1) {
+                    keywords.push(keyword)
+                  }
+                })
+              })
+              return keywords
+            },
+            toggleCourseOptions: function () {
+              this.showCourses = !this.showCourses
+            }
           }
-        })
-        return hasKeyword
-      })
-    },
-    bestCourseManager: function () {
-      var keywords = this.keywordsSelected()
-
-      return this.courses.filter(function (course) {
-        if (course.courseKeywords.indexOf('manager') > -1 && keywords.indexOf('manager') > -1) {
-          return course.coursePriority
         }
-      })
-    },
+        </script>
 
-    bestCourse: function () {
-      var keywords = this.keywordsSelected()
+        <!-- Add "scoped" attribute to limit CSS to this component only -->
 
-      return this.courses.filter(function (course) {
-        var hasKeyword = false
+        <style lang="scss" scoped>
+        @import "./style/bartendr-theme.scss";
 
-        keywords.forEach(function (keyword) {
-          if (course.courseKeywords.indexOf(keyword) > -1) {
-            hasKeyword = true
-          }
-        })
-        if (hasKeyword) {
-          return course.coursePriority
+        /* Enter and leave animations can use different */
+        /* durations and timing functions.              */
+        .slide-fade-enter-active {
+          transform: translateY(0%);
+          -webkit-animation: slideRightIn 1s ease infinite;
+          -moz-animation: slideRightIn 1s ease infinite;
+          -o-animation: slideRightIn 1s ease infinite;
+          animation: slideRightIn 1s ease infinite;
         }
-      })
-    }
-  },
-  methods: {
-    keywordsSelected: function () {
-      var keywords = []
+        .slide-fade-leave-active {
+          transform: translateY(0%);
+          -webkit-animation: slideLeftOut 1s ease infinite;
+          -moz-animation: slideLeftOut 1s ease infinite;
+          -o-animation: slideLeftOut 1s ease infinite;
+          animation: slideLeftOut 1s ease infinite;
+        }
+        .slide-fade-enter, .slide-fade-leave-to
+        /* .slide-fade-leave-active for <2.1.8 */ {
+          transform: translateY(0%);
+        }
 
-      this.goalsSelected.filter(function (goal) {
-        goal.goalKeywords.filter(function (keyword) {
-          if (keywords.indexOf(keyword) === -1) {
-            keywords.push(keyword)
-          }
-        })
-      })
-      return keywords
-    },
-    toggleCourseOptions: function () {
-      this.showCourses = !this.showCourses
-    }
+/* slide to the left in */
+
+@keyframes slideRightIn {
+  0% {
+    transform: translateX(150%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0%);
   }
 }
-</script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 
-<style lang="scss" scoped>
-@import "./style/bartendr-theme.scss";
+/* slide to the left out */
+
+@keyframes slideLeftOut {
+  0% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-150%);
+  }
+}
 
 
 // Styles for Hero
@@ -175,6 +232,7 @@ export default {
   background: $ctaGradient, url('/static/img/bg1.jpg');
   background-size: 400% 400%, cover;
   @include ctaGradientAnimation;
+  position: relative;
   
   nav {
     margin-right: 1rem;
@@ -189,20 +247,26 @@ export default {
   }
 
   h1 {
-      text-transform: uppercase;
-      font-size: .8rem;
-      font-weight: 500;
-      text-align: center;
+    text-transform: uppercase;
+    font-size: .8rem;
+    font-weight: 500;
+    text-align: center;
   }
 
-  .hero-content {
+  #hero-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1rem 0;
     width: 80%;
     margin: auto;
     max-width: $maxContentWidth;
     text-align: center;
-    
-     h2 {
+    #hero-step1, #hero-step2 {
+      text-align: center;
+    }
+    h2 {
       text-align: center;
       line-height: 2rem;
     }
@@ -254,7 +318,7 @@ export default {
 }
 
 #next-step, #remind-later {
-    text-align: center;
+  text-align: center;
 }
 
 // Features Section
@@ -263,7 +327,7 @@ export default {
   margin: auto;
   width: 80%;
   max-width: 960px;
- .feature {
+  .feature {
     box-sizing: border-box;
     padding: 1rem;
   }
@@ -315,20 +379,20 @@ export default {
   }
 
   @media screen and (min-width: 768px){
-      @include flexContainer;
-      width: 80%;
-      max-width: $maxContentWidth;
-      margin: auto;
+    @include flexContainer;
+    width: 80%;
+    max-width: $maxContentWidth;
+    margin: auto;
 
-      .review {
-        align-self: flex-start;
-        box-sizing: border-box;
-        flex-grow: 1;
-        width: 33%;
-        margin: 0;
-        padding: 1rem;
-        
-        h3 {
+    .review {
+      align-self: flex-start;
+      box-sizing: border-box;
+      flex-grow: 1;
+      width: 33%;
+      margin: 0;
+      padding: 1rem;
+
+      h3 {
           height: 3rem; // Even text height for columns
           display: block;
         }
@@ -336,4 +400,4 @@ export default {
     }
   }
 
-</style>
+  </style>
