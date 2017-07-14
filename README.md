@@ -2,8 +2,6 @@
 
 > A Vue.js project for a Bartender Certification PPC landing page
 
-Built with Webpack :)
-
 
 ## Build Setup
 
@@ -32,6 +30,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 4. Design
 5. Build!
 6. Next Steps
+7. Conclusion
 
 ## Introduction
 
@@ -45,7 +44,7 @@ As a next step, I would recommend doing some rounds of user testing, launching w
 
 The research for this project was two-fold: Learning more about best landing page practices and getting an understanding of the user for this particular project. 
 
-I read several articles about PPC, SEO and designing/writing for landing pages. Most of this research suggests that there are a few critical pieces to include in a landing page, much of which is content-driven. That said, some design patterns emerged from the trends, including lots of whitespace, short copy pieces, and examples of the product in context. One surprise to me was realizing multi-step forms actually perform better than single-page forms, the idea being that you start the user off with low-stakes questions (like survey responses or preferences) to hook them in and then bring up the more sensitive information (like email or phone number) later in the flow. These best practices informed a lot of what you see in the Bartendr project.
+I read several articles about PPC, SEO, and designing or writing for landing pages. Most of this research suggests that there are a few critical pieces to include in a landing page, much of which is content-driven. That said, some design patterns emerged from the trends, including lots of whitespace, short copy pieces, and examples of the product in context. One surprise to me was realizing multi-step forms actually perform better than single-page forms, the idea being that you start the user off with low-stakes questions (like survey responses or preferences) to hook them in and then bring up the more sensitive information (like email or phone number) later in the flow. These best practices informed a lot of what you see in the Bartendr project.
 
 The other side of the research was interviewing a few bartender friends of mine. The world of Bartending was a bit of an enigma to me before embarking on this project, but in addition to my informal conversations I also looked at competitor products like Learn2Serve.com and read articles about general experiences behind the bar. My biggest takeaway from this part of my research was understanding where the user is coming from and what they really want out of this page. It became clear that while some folks use bartending as a means to supplement their income while a lot of others stay in the industry for years out of love for the atmosphere and pride in their work. On both ends of the spectrum, tips are high motivators. Reading these experiences helped me define my loose user personas and later write the testimonials in the content.
 
