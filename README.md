@@ -68,7 +68,7 @@ After getting a handle on the direction my sketches were taking, I took to the S
 I kept coming back to wanting to "modernize" this industry after seeing so many competitor producs with really dated web design. Rubik from Google Fonts won out as the cool contender for the emotional goal I was going for. I chose a purple/red color scheme to feel a little more bold while hinting at wine (what can I say, I've got a preference!). I pushed the color a bit by playing with gradients and the subtle, semi-transparent animation on the hero brings motion to this part of the page.
 
 
-On a project with more time and budget, I would highly recommend shooting custom photography or incorporating some other bespoke elements. However, I found some great photos on Unspash for the more creative elements on the page (the fake video and the hero background) and got some user photos from Diverse UI Faces to bring personality to my testimonials section.
+On a project with more time and budget, I would highly recommend shooting custom photography or incorporating some other bespoke elements. However, I found some great photos on Unslpash for the more creative elements on the page (the fake video and the hero background) and got some user photos from Diverse UI Faces to bring personality to my testimonials section.
 
 
 ### Writing Copy
