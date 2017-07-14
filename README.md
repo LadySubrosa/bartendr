@@ -35,7 +35,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 ## Summary
 
-Welcome to Bartendr! An awesome, fictional app that let's users quickly get certified to serve and sell liquor as well as take bartending coursework to up their skills and get more tips!
+Welcome to Bartendr! An awesome, fictional app that lets users quickly get certified to serve and sell liquor as well as take bartending coursework to up their skills and get more tips!
 
 The prompt for this project was to design and build a landing page for the PPC term "Bartending Certification". I wanted to make sure to consider marketing needs, so I spent the first half of the sprint focused on research and design. 
 
