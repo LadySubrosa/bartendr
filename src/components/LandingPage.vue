@@ -26,10 +26,10 @@
       <h3>Top Option<span v-if="bestCourse.length > 1">s</span> for You</h3>
 
       <div class="option" v-for="course in bestCourse">
-      <h4>${{ course.coursePrice }} {{ course.courseName }}</h4>
-      <p>{{ course.courseDescription }}</p>
-      <p><a href="#" class="cta">Sign Up for Bartendr</a></p>
-    </div>
+        <h4>${{ course.coursePrice }} {{ course.courseName }}</h4>
+        <p>{{ course.courseDescription }}</p>
+      </div>
+
       
 
     </div>
