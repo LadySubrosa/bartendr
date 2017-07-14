@@ -13,7 +13,7 @@ $darkLinkType: #21003D;
 $lightBodyType: rgb(255,255,255); // White
 $lightAccent: #E7D7EB; // Light purple
 $altLightAccent: rgb(219,216,222); // Light Grey
-$ctaGradient: linear-gradient(180deg, rgba($ctaColorA, 0.9), rgba($ctaColorB,0.9));
+$ctaGradient: linear-gradient(180deg, rgba($ctaColorA, 0.9), rgba($ctaColorB,0.7));
 
 // Size
 
@@ -63,7 +63,7 @@ $font: 'Rubik', Helvetica, Arial, sans-serif;
 // Rounded Button style for interactive elements
 @mixin roundedButton {
   margin: .5rem;
-  padding: 5px 1.5rem;
+  padding: .5rem 1.5rem;
   border-radius: 30px;
   border: 1px solid #fff;
   text-align: center;

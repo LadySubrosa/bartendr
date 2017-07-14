@@ -7,7 +7,7 @@
     "reviewerLocation" : "Austin, TX",
     "reviewerJobTitle" : "Bartender",
     "reviewerWorkPlace" : "The Beer Plant",
-    "img" : "static/img/jason.png"
+    "img" : "jason.png"
   },
   {
     "reviewId" : 2,
@@ -17,7 +17,7 @@
     "reviewerLocation" : "Dallas, TX",
     "reviewerJobTitle" : "Server",
     "reviewerWorkPlace" : "Mi Día from Scratch",
-    "img" : "static/img/sarah.png"
+    "img" : "sarah.png"
   },
   {
     "reviewId" : 3,
@@ -27,6 +27,6 @@
     "reviewerLocation" : "San Antonio, TX",
     "reviewerJobTitle" : "Manager",
     "reviewerWorkPlace" : "Hilton Palacio del Rio",
-    "img" : "static/img/devon.png"
+    "img" : "devon.png"
   }
  ]

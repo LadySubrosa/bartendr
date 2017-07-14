@@ -63,12 +63,40 @@ body {
   }
   input[type="submit"], button {
     @include roundedButtonCTA;
+    font-size: 1.2rem;
+  }
+  label {
+      font-size: .8rem;
+      text-transform: uppercase;
+      margin: 1rem auto;
+      display: block;
+    }
+  input {
+    display: block;
+    margin: 1rem auto;
+    &[type="email"], &[type="text"] {
+      width: 80%;
+      max-width: 300px;
+      padding: .5rem;
+      font-size: 1rem;
+      text-align: center;
+      -webkit-appearance: none;
+      background: #fff;
+      color: $darkBodyType;
+      border: solid 1px $ctaColorA;
+      border-radius: 6px;
+    }
   }
   a.cta {
     @include roundedButtonCTA;
     text-decoration: none;
     font-size: 1.1rem !important;
     line-height: 1.5rem;
+  }
+  section {
+    padding: 2rem 0;
+    text-align: center;
+    box-sizing: border-box;
   }
 }
 
