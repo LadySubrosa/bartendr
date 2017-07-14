@@ -19,7 +19,7 @@
     "courseId" : 3,
     "courseName" : "TABC + Sample Course",
     "coursePrice" : 25,
-    "courseDescription" : "Get certified and try a sample bartending lesson guarunteed to get you more tips.",
+    "courseDescription" : "Get certified and try a sample bartending lesson guaranteed to get you more tips.",
     "courseKeywords" : ["tabc", "lesson"],
     "coursePriority" : true 
   },

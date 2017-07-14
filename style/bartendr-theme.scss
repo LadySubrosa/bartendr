@@ -69,6 +69,10 @@ $font: 'Rubik', Helvetica, Arial, sans-serif;
   text-align: center;
   display: inline-block;
   -webkit-appearance: none;
+  &:hover {
+    background: $ctaColorB;
+    cursor: pointer;
+  }
 }
 
 @mixin roundedButtonCTA {

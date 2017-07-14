@@ -24,7 +24,7 @@
       
       <div id="hero-content">
       
-      <transition name="fade">  
+
         <div v-if="!showCourses" id="hero-step1" key="landing">
           <h2>A Modern Approach to your Bartender Certification. <br/>
             Quick. Legit. Actually Fun.</h2>
@@ -72,7 +72,7 @@
           </div>
           <p id="next-step"  v-on:click.prevent="toggleCourseOptions" v-if="this.goalsSelected.length"><a href="">&lt; Change Goals</a></p>
         </div>
-      </transition>
+
     </div>
 
     </section><!-- End Hero -->
@@ -112,6 +112,11 @@
 
     <section id="partners">
       <h2>Popular Partners</h2>
+      <div class="partner-list">
+        <div v-for="partner in partners" class="partner-image">
+          <img v-bind:src="imgPath+partner.partnerImg" v-bind:alt="partner.partnerName" />
+        </div>
+      </div>
     </section><!-- End Partners -->
 
     <section id="try-sample">
@@ -137,19 +142,25 @@ import courseList from '@/assets/courseList.json'
 import featuresList from '@/assets/features.json'
 import reviewsData from '@/assets/praise.json'
 import goalsList from '@/assets/goals.json'
+import partnersList from '@/assets/partners.json'
 
 export default {
   name: 'landingPage',
   data () {
     return {
+
       // Data from JSON Imports.
       goalsList: goalsList, // List of customer goals
       courses: courseList, // List of available Bartendr Courses
       reviews: reviewsData, // Content for Reviews/Praise section
       features: featuresList, // List of Bartendr Features
+      partners: partnersList, // List of partners
+
       selectedKeywords: [], // Keywords from goals user selects
+
       showCourses: false, // Template logic to move user from step 1 (goals selection) to step 2 (curated list).
       showSignup: false, // Template logic for "Remind Me Later" functionality
+
       imgPath: 'static/img/' // Path for assets
     }
   },
@@ -398,6 +409,7 @@ export default {
     text-align: center;
     img {
       width: 100%;
+      height: auto;
     }
   }
 }
@@ -464,7 +476,23 @@ export default {
 // Partners section styles
 #partners {
   text-align: center;
-  background: $lightAccent;
+  border-top: solid 6px $altLightAccent;
+  border-bottom: solid 6px $altLightAccent;
+  .partner-list {
+    @include flexContainer;
+    max-width: $maxContentWidth;
+    width: 80%;
+    margin: auto;
+    justify-content: center;
+    .partner-image {
+      padding: 1rem;
+    }
+    @media screen and (min-width: $maxContentWidth) {
+      .partner-image {
+        width: auto;
+      }
+    }
+  }
 }
 
 // Email Sign Up styles
@@ -485,5 +513,6 @@ export default {
     }
   }
 }
+
 
   </style>

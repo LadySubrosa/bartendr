@@ -75,4 +75,4 @@ Adding more features down the line
 
 ## Conclusion
 
-I learned quite a bit during this project that I will take-away with me for future work.
+I learned quite a bit during this project that I will take-away with me for future work. 

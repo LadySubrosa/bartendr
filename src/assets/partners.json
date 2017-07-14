@@ -1,0 +1,18 @@
+[
+  {
+    "partnerName" : "Olive Garden",
+    "partnerImg" : "olive-garden.png"
+  },
+  {
+    "partnerName" : "The Four Seasons",
+    "partnerImg" : "four-seasons.png"
+  },
+  {
+    "partnerName" : "The Cheesecake Factory",
+    "partnerImg" : "cheesecake-factory.png"
+  },
+  {
+    "partnerName" : "The Hilton",
+    "partnerImg" : "hilton.png"
+  }
+]
