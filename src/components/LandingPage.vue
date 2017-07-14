@@ -1,6 +1,6 @@
 <template>
   <div class="landingPage">
-    
+
     <div id="sign-up-overlay" v-show="showSignup">
       <div id="signup-modal">
 
@@ -13,7 +13,9 @@
               <input name="reminder-signup-email" type="email" placeholder="futuremixologist@email.com" />
             <input type="submit" value="Sign up for a Reminder" />
           </form>
-          <p><a href="" v-on:click.prevent="toggleSignup">Close</a></p>
+          <p>
+            <a href="" v-on:click.prevent="toggleSignup">Close</a>
+          </p>
         </div>
       </div>
     </div>
@@ -23,15 +25,14 @@
       <h1>Bartendr</h1>
       
       <div id="hero-content">
-      
 
         <div v-if="!showCourses" id="hero-step1" key="landing">
           <h2>A Modern Approach to your Bartender Certification. <br/>
             Quick. Legit. Actually Fun.</h2>
-            <p>What are your goals?</p>
+            <p>What are your bartending goals?</p>
             <p v-for="goal in goalsList" class="goal-buttons">
-             <input type="checkbox" class="goal-button" v-model="goal.selected" v-bind:id="goal.goalID" v-bind:true-value="true" v-bind:false-value="false"/>
-             <label v-bind:for="goal.goalID">{{ goal.goalName }}</label>
+              <input type="checkbox" class="goal-button" v-model="goal.selected" v-bind:id="goal.goalID" v-bind:true-value="true" v-bind:false-value="false"/>
+              <label v-bind:for="goal.goalID">{{ goal.goalName }}</label>
             </p>
             
             <p id="next-step"  v-on:click.prevent="toggleCourseOptions" v-if="this.goalsSelected.length">
@@ -184,7 +185,7 @@ export default {
         return hasKeyword
       })
     },
-    // Filter list based on whether its flagged as a marketing priority
+    // Filter list based on whether it has been flagged as a marketing priority
     bestCourses: function () {
       var keywords = this.keywordsSelected()
       return this.courses.filter(function (course) {
@@ -202,6 +203,7 @@ export default {
     }
   },
   methods: {
+
     // Helper method to track the keywords associated with the selected goals
     // Returns array of strings (the keywords)
     keywordsSelected: function () {
@@ -215,11 +217,13 @@ export default {
       })
       return keywords
     },
+
     // Function to drive template logic on Hero content
     // Sets showCourses to move user between steps
     toggleCourseOptions: function () {
       this.showCourses = !this.showCourses
     },
+
     // Function to drive template logic on "Remind Me Later" modal
     toggleSignup: function () {
       this.showSignup = !this.showSignup
@@ -374,7 +378,6 @@ export default {
 }
 
 
-
 // Features Section
 #features{
   text-align: center;
@@ -399,6 +402,7 @@ export default {
   }
 }
 
+
 // Watch Bartender/Video Section 
 #example {
   #video {
@@ -416,7 +420,6 @@ export default {
 
 
 // Praise/Reviews Section
-
 #reviews {
   text-align: center;
   #reviews-list {  
@@ -486,6 +489,11 @@ export default {
     justify-content: center;
     .partner-image {
       padding: 1rem;
+      align-items: center;
+      img {
+        width: 100px;
+        height: auto;
+      }
     }
     @media screen and (min-width: $maxContentWidth) {
       .partner-image {
@@ -513,6 +521,4 @@ export default {
     }
   }
 }
-
-
-  </style>
+</style>
