@@ -99,7 +99,7 @@ The most important next step after launch is testing. Landing pages like this ar
 
 I learned quite a bit during this project that I will take-away with me for future work:
 
--Multi-step forms can be incredibly powerful for getting users to completion
--The User Centered Design Canvas can quickly organize business goals against user goals and bring focus to the design process
--Vue.js has a lot to offer and helped me get up and running really fast.
+* Multi-step forms can be incredibly powerful for getting users to completion
+* The User Centered Design Canvas can quickly organize business goals against user goals and bring focus to the design process
+* Vue.js has a lot to offer and helped me get up and running really fast.
 
