@@ -4,6 +4,15 @@
 
 Built with Webpack :)
 
+## Contents
+
+1. Introduction
+2. Research
+3. Sketching
+4. Design
+5. Build!
+
+
 ## Build Setup
 
 ``` bash
